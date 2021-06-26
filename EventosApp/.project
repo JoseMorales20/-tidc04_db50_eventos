@@ -3,6 +3,7 @@
 	<name>EventosApp</name>
 	<comment></comment>
 	<projects>
+		<project>EventosModel</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
