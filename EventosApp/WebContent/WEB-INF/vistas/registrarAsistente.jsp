@@ -3,6 +3,31 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../templates/header.jsp"></jsp:include>
 	<main class="container mt-6">
+	<c:if test="${mensaje != null }">
+		<div class="columns is-centered mb-6">
+			<div class="column is-6">
+				<div class="notification is-info">
+					<p>${mensaje}</p>
+				</div>
+			</div>
+		</div>
+	</c:if>
+	<c:if test="${errores != null }">
+		<div class="columns is-centered mb-6">
+			<div class="column is-6">
+				<div class="notification is-warning">
+					<h6>complete los campos del formulario</h6>
+					<div class="content">
+						<ul>
+							<c:forEach var="error" items="${errores}">
+								<li>${error}</li>
+							</c:forEach>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</c:if>
 		<div class="columns is-centered">
 			<div class="column is-6">
 				<form method="POST" action="">

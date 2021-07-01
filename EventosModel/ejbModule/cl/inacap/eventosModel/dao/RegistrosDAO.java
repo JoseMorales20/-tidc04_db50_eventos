@@ -1,11 +1,14 @@
 package cl.inacap.eventosModel.dao;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 
 import cl.inacap.eventosModel.dto.Registro;
 
@@ -13,29 +16,58 @@ import cl.inacap.eventosModel.dto.Registro;
 @LocalBean
 public class RegistrosDAO implements RegistrosDAOLocal {
 	
-	private static List<Registro> registros = new ArrayList<Registro>();
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("RegistrosModel");
+	
 	
 	@Override
 	public void save(Registro registro) {
-		registros.add(registro);
+		EntityManager em = this.emf.createEntityManager();
+		try {
+			em.persist(registro);
+			em.flush();
+			
+		}catch(Exception ex) {
+			
+		}finally {
+			em.close();
+		}
 		
 	}
 
 	@Override
 	public List<Registro> getAll() {
-		// TODO Auto-generated method stub
-		return registros;
+		EntityManager em = this.emf.createEntityManager();
+		try {
+			return em.createNamedQuery("Registro.getAll",Registro.class).getResultList();
+		}catch(Exception ex) {
+			return null;
+		}finally {
+			em.close();
+		}
 	}
 
 	@Override
-	public void delete(Registro registro) {
-		registros.remove(registro);
-		
+	public List<Registro> getByEstado(String estado) {
+		EntityManager em = this.emf.createEntityManager();
+		try {
+			return em.createNamedQuery("Registro.getByEstado", Registro.class).setParameter("estado",estado).getResultList();
+		}catch(Exception ex) {
+			return null;
+		}finally {
+			em.close();
+		}
 	}
 
 	@Override
-	public List<Registro> filterByName(String nombre) {
-		return registros.stream().filter(r->r.getNombre().contains(nombre)).collect(Collectors.toList());
+	public Registro findByRut(String Rut) {
+		EntityManager em = this.emf.createEntityManager();
+		try {
+			return em.find(Registro.class,Rut);
+		}catch(Exception ex){
+			return null;
+		}finally {
+			em.close();
+		}
 	}
 	
 	

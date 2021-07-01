@@ -21,21 +21,9 @@
 				</div>
 				<div id="navbarBasicExample" class="navbar-menu">
 					<div class="navbar-start">
-						<a class="navbar-item"> Home </a>
-
-						<div class="navbar-item has-dropdown is-hoverable">
-							<a class="navbar-link" href=""> Solicitud </a>
-
-							<div class="navbar-dropdown">
-								<a class="navbar-item" href="">Registrar</a>
-							</div>
-						</div>
-						<div class="navbar-item has-dropdown is-hoverable">
-							<a class="navbar-link" href="">Resumen</a>
-							<div class="navbar-dropdown">
-								<a class="navbar-item" href="">asistentes</a>
-							</div>
-						</div>
+						<a class="navbar-item" href="index.jsp"> Home </a>						
+						<a class="navbar-item" href="RegistrarAsistenteController.do"> registrar </a>
+						<a class="navbar-item" href=""> resumen </a>
 					</div>
 				</div>
 			</nav>

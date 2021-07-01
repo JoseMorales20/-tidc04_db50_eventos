@@ -2,8 +2,24 @@ package cl.inacap.eventosModel.dto;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Rut;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="registros")
+@NamedQueries({
+		@NamedQuery(name="Registro.getAll", query="SELECT r FROM Registro r ORDER BY r.rut"),
+		@NamedQuery(name="Registro.getByEstado", query="SELECT r FROM Registro r WHERE r.estado = estado"),
+})
+
 public class Registro {
-	
+	@Rut 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String rut;
 	private String nombre;
 	private String apellido;

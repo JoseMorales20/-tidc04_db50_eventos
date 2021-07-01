@@ -11,8 +11,8 @@ public interface RegistrosDAOLocal {
 
 	void save(Registro registro);
 	List<Registro> getAll();
-	void delete(Registro regsitro);
-	List<Registro> filterByName(String nombre);
+	List<Registro> getByEstado(String estado);
+	Registro findByRut(String Rut);
 		
 	
 }
