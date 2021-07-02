@@ -23,7 +23,7 @@
 					<div class="navbar-start">
 						<a class="navbar-item" href="index.jsp"> Home </a>						
 						<a class="navbar-item" href="RegistrarAsistenteController.do"> registrar </a>
-						<a class="navbar-item" href=""> resumen </a>
+						<a class="navbar-item" href="ResumenAsistenteController.do"> resumen </a>
 					</div>
 				</div>
 			</nav>

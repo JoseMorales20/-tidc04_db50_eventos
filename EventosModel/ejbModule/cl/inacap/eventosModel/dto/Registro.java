@@ -18,7 +18,7 @@ import javax.persistence.Table;
 })
 
 public class Registro {
-	@Rut 
+	@Rut
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String rut;
 	private String nombre;
