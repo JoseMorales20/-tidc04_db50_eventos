@@ -16,7 +16,7 @@ import cl.inacap.eventosModel.dto.Registro;
 @LocalBean
 public class RegistrosDAO implements RegistrosDAOLocal {
 	
-	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("RegistrosModel");
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("eventosModel");
 	
 	
 	@Override
